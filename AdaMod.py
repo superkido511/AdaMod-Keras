@@ -53,7 +53,7 @@ class AdaMod(Optimizer):
         #     vhats = [K.zeros(K.int_shape(p), dtype=K.dtype(p)) for p in params]
         # else:
         vhats = [K.zeros(1) for _ in params]
-        self.weights = [self.iterations] + ms + vs + vhats
+        self.weights = [self.iterations] + ms + vs + ss + vhats
 
         for p, g, m, v, s, vhat in zip(params, grads, ms, vs, ss, vhats):
             m_t = (self.beta_1 * m) + (1. - self.beta_1) * g
