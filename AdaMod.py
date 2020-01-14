@@ -70,6 +70,7 @@ class AdaMod(Optimizer):
             p_t = p - miu_t_hat * m_t
             self.updates.append(state_ops.assign(m, m_t))
             self.updates.append(state_ops.assign(v, v_t))
+            self.updates.append(state_ops.assign(s, s_t))
             new_p = p_t
 
             # Apply constraints.
